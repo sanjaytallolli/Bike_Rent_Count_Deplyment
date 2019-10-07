@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Bike Rental Count ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Bike Rental Count Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="season" placeholder="seaon (1 - 4)" required="required" />
+		<input type="text" name="year" placeholder="year ( 0, 1)" required="required" />
+		<input type="text" name="month" placeholder="month (1 - 12)" required="required" />
+		<input type="text" name="weather" placeholder="weather (1 - 4)" required="required" />
+		<input type="text" name="temperature" placeholder="temperature ( 0 - 1)" required="required" />
+        <input type="text" name="humidity" placeholder="humidity (0 - 1)" required="required" />
+		<input type="text" name="windspeed" placeholder="windspeed (0 - 1)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Bike Count</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
