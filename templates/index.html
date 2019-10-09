@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bike Rental Count ML API</title>
+  
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -13,8 +14,22 @@
 
 <body>
  <div class="login">
-	<h1>Bike Rental Count Prediction</h1>
-
+	<h1 style="color:darkblue;">Bike Rental Count Prediction</h1>
+	
+	<p style="color:brown;"> season: Season (1: springer, 2: summer, 3: fall, 4: winter) </p>
+	<p style="color:brown;"> year  : Year (0: 2011, 1:2012)</p>	
+	<p style="color:brown;">month  : Month (1 to 12) mean 1: January, 2: February…….12: December<p>	
+	<p style="color:brown;">weather:  1: Clear, Few clouds, Partly cloudy 		2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist</p>
+	<p style="color:brown;">...............2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist</p>
+	<p style="color:brown;">...............3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds</p>
+	<p style="color:brown;">...............4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog</p>
+				  
+	<p style="color:brown;">temperature: Normalized temperature in Celsius. The values are derived via</p>
+	<p style="color:brown;">(t-t_min)/(t_max-t_min),	t_min=-8, t_max=+39 (only in hourly scale)</p>
+		
+	<p style="color:brown;">humidity: Normalized humidity. The values are divided to 100 (max)</p>
+		
+	<p style="color:brown;">windspeed: Normalized wind speed. The values are divided to 67 (max)</p>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="season" placeholder="seaon (1 - 4)" required="required" />
@@ -25,7 +40,10 @@
         <input type="text" name="humidity" placeholder="humidity (0 - 1)" required="required" />
 		<input type="text" name="windspeed" placeholder="windspeed (0 - 1)" required="required" />
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Bike Count</button>
+        
+		<button style="background-color:green; border-color:gray; color:white">Predict Bike Count</button>
+</body>
+</html>
     </form>
 
    <br>
